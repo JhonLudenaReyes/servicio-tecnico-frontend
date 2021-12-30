@@ -7,7 +7,7 @@ import { SET_CURRENT_USER } from "./types";
 export const loginUser = (userData) => (dispatch) => {
   axios
     .get(
-      `http://localhost:8081/servicio-tecnico/web-service/api/usuarios/login/${userData.usuario}/${userData.contrasenia}`
+      `/servicio-tecnico/web-service/api/usuarios/login/${userData.usuario}/${userData.contrasenia}`
     )
     .then((res) => {
       // Save to localStorage

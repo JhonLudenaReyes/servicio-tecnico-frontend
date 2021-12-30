@@ -8,10 +8,10 @@ const AuthNav = () => {
       <Nav className="mr-auto">
         <Link
           className="Link"
-          to="/dashboard"
+          to="/administrator/person"
           style={{ color: "gray", textDecoration: "inherit" }}
         >
-          <b>Usuario</b>
+          <b>Persona</b>
         </Link>
         <Link
           className="Link"
