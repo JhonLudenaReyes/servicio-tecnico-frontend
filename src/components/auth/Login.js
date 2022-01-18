@@ -80,6 +80,7 @@ const Login = () => {
                   placeholder="Contraseña"
                 />
               </Form.Group>
+              <hr/>
               <Button variant="primary" type="submit">
                 Iniciar sesión
               </Button>
