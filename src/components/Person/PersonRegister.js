@@ -13,34 +13,34 @@ import {
 import Select from "react-select";
 import { getLocations } from "../../actions/locationActions";
 
-import {useForm} from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 
 const PersonRegister = () => {
   const dispatch = useDispatch();
   const locations = useSelector((state) => state.location.locations);
 
   const [options, setOptions] = useState([]);
-  /*const [personData, setPersonData] = useState({
-    idLocalidad: "",
-    nombres: "",
-    apellidos: "",
-    direccion: "",
-    celular: "",
-  });*/
 
-  const { register, handleSubmit } = useForm();
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      select: {value: 0, label: "Seleccione..."},
+      nombres: "",
+      apellidos: "",
+      direccion: "",
+      celular: "",
+    },
+  });
 
   useEffect(() => {
     dispatch(getLocations());
   }, [dispatch]);
 
   useEffect(() => {
-    if (locations) {
       setLocations(locations);
-    }  
   }, [locations]);
 
   const setLocations = (locations) => {
+    
     const optionLocations = [];
     locations.map(
       (location, index) =>
@@ -57,41 +57,9 @@ const PersonRegister = () => {
     ]);
   };
 
-  //const options = [
-  //  { value: "chocolate", label: "Chocolate" },
-  //  { value: "strawberry", label: "Strawberry" },
-  //  { value: "vanilla", label: "Vanilla" },
-  //];
-
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const handleChange = (selectedOption) => {
-    setSelectedOption({
-      ...selectedOption,
-      selectedOption,
-    });
-    console.log(`Option selected:`, selectedOption);
+  const onSubmit = (data) => {
+    console.log(data);
   };
-
-  /*const onChange = (e) => {
-    setPersonData({
-      ...personData,
-      [e.target.id]: e.target.value,
-    });
-  };*/
-
-  /*const onSubmit = (e) => {
-    e.preventDefault();
-    setPersonData({
-      ...personData,
-      idLocalidad: selectedOption.value,
-    });
-    console.log(personData);
-  };*/
-
-  const onSubmit = data => {
-    console.log(data)
-  }
 
   return (
     <Container>
@@ -100,55 +68,71 @@ const PersonRegister = () => {
           <Form noValidate onSubmit={handleSubmit(onSubmit)}>
             <FormGroup>
               <FormLabel>Localidad</FormLabel>
-              <Select
-                value={selectedOption}
-                onChange={handleChange}
-                options={options}
-                
+              <Controller
+                name="select"
+                control={control}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={options}
+                  />
+                )}
               />
             </FormGroup>
             <FormGroup>
               <FormLabel>Nombre</FormLabel>
-              <FormControl
-                //onChange={onChange}
-                //value={this.state.email}
-                //name="nombres"
-                type="text"
-                placeholder="Ingrese su nombre"
-                {...register("nombres")}
+              <Controller
+                name="nombres"
+                control={control}
+                render={({ field }) => (
+                  <FormControl
+                    {...field}
+                    type="text"
+                    placeholder="Ingrese su nombre"
+                  />
+                )}
               />
             </FormGroup>
             <FormGroup>
               <FormLabel>Apellido</FormLabel>
-              <FormControl
-                //onChange={onChange}
-                //value={}
-                //name="apellidos"
-                type="text"
-                placeholder="Ingrese su apellido"
-                {...register("apellidos")}
+              <Controller
+                name="apellidos"
+                control={control}
+                render={({ field }) => (
+                  <FormControl
+                    {...field}
+                    type="text"
+                    placeholder="Ingrese su apellido"
+                  />
+                )}
               />
             </FormGroup>
             <FormGroup>
               <FormLabel>Direccion</FormLabel>
-              <FormControl
-                //onChange={onChange}
-                //value={}
-                //name="direccion"
-                type="text"
-                placeholder="Ingrese su direccion"
-                {...register("direccion")}
+              <Controller
+                name="direccion"
+                control={control}
+                render={({ field }) => (
+                  <FormControl
+                    {...field}
+                    type="text"
+                    placeholder="Ingrese su direccion"
+                  />
+                )}
               />
             </FormGroup>
             <FormGroup>
               <FormLabel>Celular</FormLabel>
-              <FormControl
-                //onChange={onChange}
-                //value={}
-                //name="celular"
-                type="text"
-                placeholder="Ingrese su numero celular"
-                {...register("celular")}
+              <Controller
+                name="celular"
+                control={control}
+                render={({ field }) => (
+                  <FormControl
+                    {...field}
+                    type="text"
+                    placeholder="Ingrese su numero celular"
+                  />
+                )}
               />
             </FormGroup>
             <hr />
