@@ -1,11 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Container, Row} from "react-bootstrap";
+import "./styles/Landing.css";
 
 const Landing = () => {
   return (
-    <Link to={"/"} className="btn btn-outline-primary">
-      Registrarse
-    </Link>
+    <>
+    <Container fluid className="LandContainer">
+    <Row className="StylesRow">
+        <h1 className="text-center"><b>Sistema web de servicio técnico...</b></h1>
+    </Row>
+    </Container>
+    </>
   );
 };
 

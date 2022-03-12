@@ -12,7 +12,8 @@ import Landing from "./components/layout/Landing";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/layout/Footer";
-import Person from "./components/Person/PersonRegister";
+import Person from "./components/Person/PersonAdmin";
+import PersonSave from "./components/Person/PersonForm";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -35,7 +36,16 @@ const App = () => {
             <Route exact path="/" element={<Landing />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
-            <Route exact path="/administrator/person" element={<Person/>}/> 
+            <Route
+              exact
+              path="/administrator/person/admin"
+              element={<Person />}
+            />
+            <Route
+              exact
+              path="/administrator/person"
+              element={<PersonSave />}
+            />
           </Routes>
           <Footer />
         </Router>

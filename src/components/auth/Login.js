@@ -38,7 +38,7 @@ const Login = () => {
 
   return (
     <>
-      <Container className="stylesContainer">
+      <Container className="LogContainer">
         <Row className="justify-content-md-center">
           <Col md="auto">
             <Link

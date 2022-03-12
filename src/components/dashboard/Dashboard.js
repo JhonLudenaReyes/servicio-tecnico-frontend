@@ -1,9 +1,15 @@
 import React from "react";
+import {Container, Row} from "react-bootstrap";
+import "./styles/Dashboard.css";
 
 const Dashboard = () => {
   return (
     <>
-      <h1>Bienvenidos a la página inicial</h1>
+      <Container fluid className="DashContainer">
+    <Row className="StylesRow">
+        <h1 className="text-center"><b>Página principal del sistema</b></h1>
+    </Row>
+    </Container>
     </>
   );
 };
