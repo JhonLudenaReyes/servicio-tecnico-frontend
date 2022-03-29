@@ -14,6 +14,9 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/layout/Footer";
 import Person from "./components/Person/PersonAdmin";
 import PersonSave from "./components/Person/PersonForm";
+import Client from "./components/Client/ClientAdmin";
+
+import "./App.css"
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -46,6 +49,7 @@ const App = () => {
               path="/administrator/person"
               element={<PersonSave />}
             />
+            <Route exact path="/administrator/client" element={<Client />} />
           </Routes>
           <Footer />
         </Router>

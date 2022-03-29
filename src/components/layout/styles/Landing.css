@@ -1,5 +1,6 @@
 .LandContainer {
   height: 76vh;
+  background-image: url("C:\Users\JHON\Desktop\Javascript\React\servicio-tecnico-frontend\src\static\img\Soporte.jpg");
 }
 
 .StylesRow {
@@ -8,4 +9,9 @@
 
 .StylesRow h1 {
   margin-top: 170px;
+}
+
+.StylesRow h1 b{
+  color: aliceblue;
+  text-shadow: 3px 3px midnightblue;
 }

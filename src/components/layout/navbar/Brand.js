@@ -2,7 +2,7 @@ import React from "react";
 import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import Logo from "../../../static/img/servicio-tecnico.jpg";
+import Logo from "../../../static/img/logo.png";
 import "./styles/Brand.css";
 
 const Brand = () => {
