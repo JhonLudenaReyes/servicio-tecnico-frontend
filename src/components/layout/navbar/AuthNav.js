@@ -6,7 +6,7 @@ const AuthNav = () => {
   return (
     <>
       <Nav className="mr-auto">
-      <Link
+        <Link
           className="Link"
           to="/dashboard"
           style={{ color: "gray", textDecoration: "inherit" }}
@@ -26,6 +26,13 @@ const AuthNav = () => {
           style={{ color: "gray", textDecoration: "inherit" }}
         >
           <b>Cliente</b>
+        </Link>
+        <Link
+          className="Link"
+          to="/administrator/permit"
+          style={{ color: "gray", textDecoration: "inherit" }}
+        >
+          <b>Permiso</b>
         </Link>
       </Nav>
     </>

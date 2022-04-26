@@ -14,3 +14,7 @@ export const GET_ALL_PEOPLE = "GET_ALL_PEOPLE";
 export const DELETE_PERSON_BY_ID = "DELETE_PERSON_BY_ID";
 export const SET_PERSON = "SET_PERSON";
 export const EDIT_PERSON = "EDIT_PERSON";
+
+//PERMIT ACTIONS
+export const SAVE_PERMIT = "SAVE_PERMIT";
+export const GET_PERMITS = "GET_PERMITS";
