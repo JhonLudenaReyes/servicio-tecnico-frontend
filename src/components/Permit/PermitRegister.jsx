@@ -1,34 +1,58 @@
+//REACT
 import React, { useEffect, useState } from "react";
+//REACT REDUX
 import { useDispatch, useSelector } from "react-redux";
+
+//GLOBAL ACTIONS
+import { changeState } from "../../actions/globalActions";
+//PERMIT ACTIONS
+import { editPermit, savePermit } from "../../actions/permitActions";
+
+//REACT HOT TOAST
+import toast, { Toaster } from "react-hot-toast";
+
+//REACT BOOTSTRAP
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { savePermit } from "../../actions/permitActions";
+
+//STYLES
 import "./styles/PermitRegister.css";
 
-//NOTIFICACIONES
-import toast, { Toaster } from "react-hot-toast";
-import { changeState } from "../../actions/globalActions";
-
+//INITIAL STATE
 const data = {
   permit: "",
 };
 
 const PermitRegister = () => {
-  //NOTIFICACIÓN
+  //NOTIFICATIONS
   const notify = () => toast.success("¡Guardado satisfactoriamente!");
-
-  const verification = useSelector((state) => state.permit.verification);
 
   const dispatch = useDispatch();
 
+  const verification = useSelector((state) => state.permit.verification);
+
+  //LOAD INITIAL STATE
   const [permit, setPermit] = useState(data);
 
+  //IF VERIFICATION IS TRUE SHOW NOTIFICATION
   useEffect(() => {
     if (verification) {
       notify();
+      //CHANGE INITIAL STATE IN THE STORE
       dispatch(changeState(false));
     }
   });
 
+  //MONTAR DATOS PARA EDITAR
+  useEffect(() => {
+    if (permit.idPermiso) {
+      setPermit({
+        ...permit,
+        permit: permit.permit,
+      });
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [permit]);
+
+  //GET DATA FORM
   const onChange = (e) => {
     setPermit({
       ...permit,
@@ -38,15 +62,27 @@ const PermitRegister = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    //SHOW FOR CONSOLE THE DATA
     console.log(permit);
 
+    //DATA TO SAVE
     const dataSave = {
       permiso: permit.permit,
     };
 
-    dispatch(savePermit(dataSave));
+    //DATA TO EDIT
+    const dataEdit = {
+      idPermiso: permit.idPermiso,
+      permiso: permit.permit,
+    };
 
-    //Clear form
+    permit.idPermiso
+      ? //DISPATCH SAVE PERMIT
+        dispatch(savePermit(dataSave))
+      : //DISPATCH EDIT PERMIT
+        dispatch(editPermit(dataEdit));
+
+    //CLEAR FORM
     clearState(data);
   };
 

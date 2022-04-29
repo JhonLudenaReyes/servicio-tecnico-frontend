@@ -18,3 +18,6 @@ export const EDIT_PERSON = "EDIT_PERSON";
 //PERMIT ACTIONS
 export const SAVE_PERMIT = "SAVE_PERMIT";
 export const GET_PERMITS = "GET_PERMITS";
+export const DELETE_PERMIT_BY_ID = "DELETE_PERMIT_BY_ID";
+export const SET_PERMIT = "SET_PERMIT";
+export const EDIT_PERMIT = "EDIT_PERMIT";
