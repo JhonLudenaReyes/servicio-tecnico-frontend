@@ -6,9 +6,7 @@ import { SET_CURRENT_USER } from "./types";
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
   axios
-    .get(
-      `/servicio-tecnico/web-service/api/usuarios/login/${userData.usuario}/${userData.contrasenia}`
-    )
+    .get(`/usuarios/login/${userData.usuario}/${userData.contrasenia}`)
     .then((res) => {
       // Save to localStorage
 
@@ -34,7 +32,7 @@ export const setCurrentUser = (decoded) => {
 };
 
 // Log user out
-export const logoutUser = () => dispatch => {
+export const logoutUser = () => (dispatch) => {
   // Remove token from local storage
   localStorage.removeItem("jwtToken");
   // Remove auth header for future requests

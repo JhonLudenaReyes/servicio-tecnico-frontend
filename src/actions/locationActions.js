@@ -4,7 +4,7 @@ import { GET_LOCATIONS } from "./types";
 
 export const getLocations = () => (dispatch) => {
   axios
-    .get(`/servicio-tecnico/web-service/api/localidades/lista`)
+    .get(`/localidades/lista`)
     .then((res) =>
       dispatch({
         type: GET_LOCATIONS,

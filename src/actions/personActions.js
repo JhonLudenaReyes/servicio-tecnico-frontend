@@ -10,7 +10,7 @@ import {
 
 export const savePerson = (Person) => (dispatch) => {
   axios
-    .post(`/servicio-tecnico/web-service/api/personas/save`, Person)
+    .post(`/personas/save`, Person)
     .then((res) =>
       dispatch({
         type: SAVE_PERSON,
@@ -22,7 +22,7 @@ export const savePerson = (Person) => (dispatch) => {
 
 export const getPeopleActive = () => (dispatch) => {
   axios
-    .get(`/servicio-tecnico/web-service/api/personas/people-active`)
+    .get(`/personas/people-active`)
     .then((res) =>
       dispatch({
         type: GET_ALL_PEOPLE,
@@ -49,9 +49,7 @@ export const getPeopleActive = () => (dispatch) => {
 
 export const deletePersonById = (idPerson) => (dispatch) => {
   axios
-    .put(
-      `/servicio-tecnico/web-service/api/personas/delete-person-log/${idPerson}`
-    )
+    .put(`/personas/delete-person-log/${idPerson}`)
     .then((res) =>
       dispatch({
         type: DELETE_PERSON_BY_ID,
@@ -70,7 +68,7 @@ export const setPerson = (person) => (dispatch) => {
 
 export const editPerson = (Person) => (dispatch) => {
   axios
-    .put(`/servicio-tecnico/web-service/api/personas/update-person`, Person)
+    .put(`/personas/update-person`, Person)
     .then((res) =>
       dispatch({
         type: EDIT_PERSON,

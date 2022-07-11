@@ -10,7 +10,7 @@ import {
 
 export const savePermit = (permit) => (dispatch) => {
   axios
-    .post(`/servicio-tecnico/web-service/api/permisos/save_permits`, permit)
+    .post(`/permisos/save_permits`, permit)
     .then((res) =>
       dispatch({
         type: SAVE_PERMIT,
@@ -28,7 +28,7 @@ export const setPermit = (permit) => (dispatch) => {
 };
 
 export const editPermit = (permit) => (dispatch) => {
-  const url = `/servicio-tecnico/web-service/api/permisos/update-permit`;
+  const url = `/permisos/update-permit`;
   axios
     .put(url, permit)
     .then((res) =>
@@ -41,7 +41,7 @@ export const editPermit = (permit) => (dispatch) => {
 };
 
 export const getListPermits = () => (dispatch) => {
-  const url = `/servicio-tecnico/web-service/api/permisos/all-permits`;
+  const url = `/permisos/all-permits`;
   axios
     .get(url)
     .then((res) => {
@@ -54,7 +54,7 @@ export const getListPermits = () => (dispatch) => {
 };
 
 export const deletePermitById = (permitId) => (dispatch) => {
-  const url = `/servicio-tecnico/web-service/api/permisos/delete-permit-by-id/${permitId}`;
+  const url = `/permisos/delete-permit-by-id/${permitId}`;
   axios
     .put(url)
     .then((res) => {
