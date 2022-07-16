@@ -7,6 +7,8 @@ import {
 } from "../../actions/personActions";
 import { changeState, resetStore } from "../../actions/globalActions";
 
+import { Container } from "react-bootstrap";
+
 import { Link, useNavigate } from "react-router-dom";
 import MaterialTable, { MTableToolbar } from "material-table";
 import toast, { Toaster } from "react-hot-toast";
@@ -93,16 +95,18 @@ const PersonList = () => {
 
   return (
     <>
-      <h1>LISTADO DE PERSONAS</h1>
-      <MaterialTable
-        title="Personas Registradas"
-        columns={columns}
-        data={people}
-        actions={actions}
-        options={options}
-        components={components}
-      />
-      <Toaster />
+      <Container>
+        <h1>LISTADO DE PERSONAS</h1>
+        <MaterialTable
+          title="Personas Registradas"
+          columns={columns}
+          data={people}
+          actions={actions}
+          options={options}
+          components={components}
+        />
+        <Toaster />
+      </Container>
     </>
   );
 };

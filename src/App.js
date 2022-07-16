@@ -40,7 +40,7 @@ const App = () => {
           <Navigation />
           <Container fluid style={{ paddingLeft: "0px", paddingRight: "0px" }}>
             <Row>
-              <Col lg={3}>
+              <Col className="appColSidebar" lg={3}>
                 <Sidebar />
               </Col>
               <Col>
