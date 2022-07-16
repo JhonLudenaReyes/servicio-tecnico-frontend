@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import Navigation from "./components/layout/navbar/Navigation";
+import Sidebar from "./components/layout/sidebar/Sidebar";
 import Landing from "./components/layout/Landing";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
@@ -18,6 +19,7 @@ import Client from "./components/Client/ClientAdmin";
 import Permit from "./components/Permit/PermitAdmin";
 
 import "./App.css";
+import { Col, Container, Row } from "react-bootstrap";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -36,23 +38,40 @@ const App = () => {
       <Provider store={store}>
         <Router>
           <Navigation />
-          <Routes>
-            <Route exact path="/" element={<Landing />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/dashboard" element={<Dashboard />} />
-            <Route
-              exact
-              path="/administrator/person/admin"
-              element={<Person />}
-            />
-            <Route
-              exact
-              path="/administrator/person"
-              element={<PersonSave />}
-            />
-            <Route exact path="/administrator/client" element={<Client />} />
-            <Route exact path="/administrator/permit" element={<Permit />} />
-          </Routes>
+          <Container fluid style={{ paddingLeft: "0px", paddingRight: "0px" }}>
+            <Row>
+              <Col lg={3}>
+                <Sidebar />
+              </Col>
+              <Col>
+                <Routes>
+                  <Route exact path="/" element={<Landing />} />
+                  <Route exact path="/login" element={<Login />} />
+                  <Route exact path="/dashboard" element={<Dashboard />} />
+                  <Route
+                    exact
+                    path="/administrator/person/admin"
+                    element={<Person />}
+                  />
+                  <Route
+                    exact
+                    path="/administrator/person"
+                    element={<PersonSave />}
+                  />
+                  <Route
+                    exact
+                    path="/administrator/client"
+                    element={<Client />}
+                  />
+                  <Route
+                    exact
+                    path="/administrator/permit"
+                    element={<Permit />}
+                  />
+                </Routes>
+              </Col>
+            </Row>
+          </Container>
           <Footer />
         </Router>
       </Provider>
