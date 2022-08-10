@@ -17,6 +17,7 @@ import Person from "./components/Person/PersonAdmin";
 import PersonSave from "./components/Person/PersonForm";
 import Client from "./components/Client/ClientAdmin";
 import Permit from "./components/Permit/PermitAdmin";
+import Role from "./components/Role/RoleAdmin";
 
 import "./App.css";
 import { Col, Container, Row } from "react-bootstrap";
@@ -63,6 +64,7 @@ const App = () => {
                     path="/administrator/client"
                     element={<Client />}
                   />
+                  <Route exact path="/administrator/role" element={<Role />} />
                   <Route
                     exact
                     path="/administrator/permit"

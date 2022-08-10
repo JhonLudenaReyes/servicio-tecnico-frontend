@@ -10,6 +10,7 @@ import {
   AccountBoxRounded,
   PeopleAltRounded,
   ManageAccountsRounded,
+  AdminPanelSettings,
 } from "@mui/icons-material";
 
 const Sidebar = () => {
@@ -33,6 +34,10 @@ const Sidebar = () => {
           <MenuItem icon={<ManageAccountsRounded />}>
             Permiso
             <Link to="/administrator/permit" />
+          </MenuItem>
+          <MenuItem icon={<AdminPanelSettings />}>
+            Rol
+            <Link to="/administrator/role" />
           </MenuItem>
           <SubMenu title="Components">
             <MenuItem>Component 1</MenuItem>
