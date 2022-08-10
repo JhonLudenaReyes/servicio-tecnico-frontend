@@ -24,3 +24,4 @@ export const EDIT_PERMIT = "EDIT_PERMIT";
 
 //ROLE ACTIONS
 export const GET_ROLES = "GET_ROLES";
+export const SAVE_ROLE = "SAVE_ROLE";
